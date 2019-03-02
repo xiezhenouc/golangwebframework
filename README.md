@@ -1,39 +1,40 @@
 # 1 package
-$GOPATH环境下面增加一个新文件夹，文件夹命名为 myframework
+go get github.com/xiezhenouc/golangwebframework
 
 # 2 使用示例
 ```go
 package main
 
 import (
-    "fmt"
-    "myframework"
+	"fmt"
+	myframework "github.com/xiezhenouc/golangwebframework"
 )
 
 type TestController struct {
-    Ctx *myframework.Context
+	Ctx *myframework.Context
 }
 
 func (t *TestController) Init(context *myframework.Context) {
-    t.Ctx = context
+	t.Ctx = context
 }
 
 func (t *TestController) SayHi() {
-    fmt.Fprintln(t.Ctx.Output, "say hi ...")
+	fmt.Fprintln(t.Ctx.Output, "say hi ...")
 }
 
 func (t *TestController) SayYes() {
-    fmt.Fprintln(t.Ctx.Output, "say yes ...")
+	fmt.Fprintln(t.Ctx.Output, "say yes ...")
 }
 
 func main() {
-    fw := myframework.New()
+	fw := myframework.New()
 
-    fw.AddAutoRouter("/test/", &TestController{})
+	fw.AddAutoRouter("/test/", &TestController{})
 
-    fw.Run(":8999")
+	fw.Run(":8999")
 
 }
+
 
 ```
 
