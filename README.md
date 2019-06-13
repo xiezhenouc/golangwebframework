@@ -2,7 +2,7 @@
 go get github.com/xiezhenouc/golangwebframework
 
 # 2 使用示例
-```go
+```golang
 package main
 
 import (
